@@ -18,8 +18,7 @@ except FileExistsError:
 	pass
 
 with open(filename, 'a+') as f:
-	writer = csv.writer(filename, delimiter=',', quotechar='"', 
-						quoting=csv.QUOTE_MINIMAL)
+	writer = csv.writer(filename, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 	writer.writerow(['test', temp])
 
 
