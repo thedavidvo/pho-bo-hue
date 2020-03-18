@@ -13,11 +13,12 @@ c.execute("CREATE TABLE IF NOT EXISTS info (id TEXT PRIMARY KEY)")
 
 try:
 	c.execute("INSERT INTO info (id) VALUES ('" + ID + "')")
+	print('okay done')
 except sqlite3.IntegrityError:
 	# ID already exists
 	print("Already exists ID")
 	c.execute("SELECT id FROM info")
-	print(c.fetchone())
+	print('ID' + c.fetchone())
 
 # Setup
 sense = SenseHat()
@@ -36,7 +37,7 @@ except FileExistsError:
 with open(filename, 'a+') as f:
 	writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 	if(f.tell() == 0):
-		f.write(['temp'])
+		writer.writerow(['temp'])
 	writer.writerow([temp])
 
 
