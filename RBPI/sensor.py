@@ -19,7 +19,7 @@ except sqlite3.IntegrityError:
 	print("Already exists ID")
 	c.execute("SELECT id FROM info")
 	print('ID' + c.fetchone())
-c.commit();
+conn.commit();
 conn.close();
 
 # Setup
