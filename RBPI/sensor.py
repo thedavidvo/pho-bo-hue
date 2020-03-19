@@ -12,16 +12,14 @@ c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS info (id TEXT PRIMARY KEY)")
 
 c.execute("SELECT id FROM info")
-print(c.fetchone())
+FETCH_ID = c.fetchone()[0];
 
-try:
+if(FETCH_ID == None):
 	c.execute("INSERT INTO info (id) VALUES (?)", [ID])
 	print('okay done' + ID)
-except sqlite3.IntegrityError:
-	# ID already exists
-	print("Already exists ID")
-	c.execute("SELECT id FROM info")
-	print('ID' + c.fetchone())
+else:
+	ID = FETCH_ID
+
 conn.commit();
 conn.close();
 
@@ -31,7 +29,7 @@ temp = sense.get_temperature()
 
 # Directory
 dir_name = './data/'
-filename = dir_name + datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + '.csv'
+filename = ID + dir_name + datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + '.csv'
 
 # Initialize
 try:
