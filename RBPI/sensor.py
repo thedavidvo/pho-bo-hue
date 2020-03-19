@@ -12,7 +12,7 @@ c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS info (id TEXT)")
 
 try:
-	c.execute("INSERT INTO info (id) VALUES ('?')", (ID, ))
+	c.execute("INSERT INTO info (id) VALUES dittttt")
 	print('okay done' + ID)
 except sqlite3.IntegrityError:
 	# ID already exists
