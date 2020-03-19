@@ -12,7 +12,8 @@ c = conn.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS info (id TEXT PRIMARY KEY)")
 
 c.execute("SELECT id FROM info")
-FETCH_ID = c.fetchone()[0];
+fetch = c.fetchone();
+FETCH_ID = fetch[0] if fetch != None else None;
 
 if(FETCH_ID == None):
 	c.execute("INSERT INTO info (id) VALUES (?)", [ID])
