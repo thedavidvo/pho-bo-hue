@@ -30,7 +30,7 @@ temp = sense.get_temperature()
 
 # Directory
 dir_name = './data/'
-filename = ID + dir_name + datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + '.csv'
+filename = dir_name + ID + datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + '.csv'
 
 # Initialize
 try:
